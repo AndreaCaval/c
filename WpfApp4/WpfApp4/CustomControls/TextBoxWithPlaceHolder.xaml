@@ -1,0 +1,220 @@
+﻿<UserControl x:Class="WpfApp4.CustomControls.TextBoxWithPlaceHolder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp4.CustomControls"
+             mc:Ignorable="d"
+             MinWidth="300"
+             x:Name="_this">
+
+    <UserControl.Resources>
+        <Style x:Key="credentialTXTtitleStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#a3a3a4"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Text" Value="{Binding PlaceHolder, ElementName=_this}"/>
+            <Setter Property="Padding" Value="2,0"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=email}" Value="">
+                    
+                    <!--Default Position and Fontsize of Title-->
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+
+                    <!--Position and Fontsize of the Title when Email Textbox has value-->
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0 0 0 30"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>
+                    
+                    
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="credentialsTXTStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Text" Value="{Binding Text, Mode=TwoWay, ElementName=_this}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            
+            <!--We also need to move our text some point below and also increase fontsize-->
+            <Style.Triggers>
+                
+                <!--So, to know when to trigger we will first check what is the font size of our title-->
+                <!--if it is 15pt then it means rthe title in above-->                
+                <DataTrigger Binding="{Binding FontSize, ElementName=title}" Value="15">
+
+                    <!--Default Position and Fontsize of Title-->
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0 20 0 0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+
+                    <!--Position and Fontsize of the Title when Email Textbox has value-->
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+
+                <!--get password inside the textbox if the textbox is empty-->
+                <DataTrigger Binding="{Binding Text, Mode=TwoWay, ElementName=_this}" Value="">
+                    <Setter Property="Text" Value="{Binding Password, ElementName=passbox}"/>
+                </DataTrigger>
+
+                <!--also show only when the Show password button is pressed-->
+                <!--if password box is visible then hide textbox-->
+                
+                <DataTrigger Binding="{Binding Visibility, ElementName=passbox}" Value="Visible">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                
+            </Style.Triggers>            
+            
+        </Style>
+
+        <Style TargetType="{x:Type PasswordBox}">
+            <Setter Property="Padding" Value="2,0,30,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+
+            <!--We also need to move our text some point below and also increase fontsize-->
+            <Style.Triggers>
+
+                <!--So, to know when to trigger we will first check what is the font size of our title-->
+                <!--if it is 15pt then it means rthe title in above-->
+                <DataTrigger Binding="{Binding FontSize, ElementName=title}" Value="15">
+
+                    <!--Default Position and Fontsize of Title-->
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0 20 0 0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+
+                    <!--Position and Fontsize of the Title when Email Textbox has value-->
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>                  
+                </DataTrigger>
+
+                <!--hide password if IsPassword = false-->
+                <DataTrigger Binding="{Binding IsPassword, ElementName=_this}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+
+                <!--also show only when the Show password button is pressed-->
+                <DataTrigger Binding="{Binding IsPressed, ElementName=showPass}" Value="True">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#a4a3a4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <Path
+                                Width="20"
+                                Data="{StaticResource showPass}"
+                                Stretch="Uniform"
+                                Fill="{TemplateBinding Foreground}"/>
+                        </Border>                        
+                        <ControlTemplate.Triggers>
+                            <!--hide button if not IsPassword-->
+                            <DataTrigger Binding="{Binding IsPassword, ElementName=_this}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </UserControl.Resources>
+    
+    <Border
+        Background="White"
+        CornerRadius="10"
+        Height="70">
+        
+        <!--Border Shadow Effect-->
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="23"
+                ShadowDepth="5"
+                Direction="270"
+                Color="WhiteSmoke"/>
+        </Border.Effect>
+
+        <Grid
+            Margin="20,6">
+            <!--Title-->
+            <TextBlock
+                x:Name="title"
+                Style="{StaticResource credentialTXTtitleStyle}"/>
+
+            <!--EMail-->
+            <TextBox
+                x:Name="email"
+                Style="{StaticResource credentialsTXTStyle}"/>
+
+            <!--to detect if our textbox is password box or not we will use a bool-->
+            <!--to update textbox or password change-->
+            
+            <!--Password-->
+            <PasswordBox
+                x:Name="passbox"
+                PasswordChanged="passbox_PasswordChanged"/>
+    
+            <!--button to toggle show/hide password-->
+            <Button
+                x:Name="showPass"
+                Background="Transparent"
+                BorderThickness="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"/>
+
+        </Grid>
+    </Border>
+</UserControl>
