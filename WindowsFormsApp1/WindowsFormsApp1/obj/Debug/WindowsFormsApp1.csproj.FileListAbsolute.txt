@@ -11,3 +11,17 @@ C:\Users\Andrea\Documents\dev\c#\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Win
 C:\Users\Andrea\Documents\dev\c#\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmAnalytics.resources
 C:\Users\Andrea\Documents\dev\c#\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmDashboard.resources
 C:\Users\Andrea\Documents\dev\c#\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmSettings.resources
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmAnalytics.resources
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmDashboard.resources
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmSettings.resources
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\dev\c-\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
